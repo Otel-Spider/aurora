@@ -1,0 +1,305 @@
+/* CSS Variables */
+:root {
+  --hero-text: #fff;
+  --hero-gold: #c4a462;
+  --hero-pill: #2b3540cc;
+  --hero-chip: #2b3540a6;
+  --hero-chip-hover: #394554d9;
+  --hero-shadow: rgba(0, 0, 0, 0.35);
+}
+
+/* Main Hero Section */
+.resort-hero {
+  position: relative;
+  min-height: 640px;
+  height: min(100vh, 900px);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Background overlay */
+.resort-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 20%, rgba(0, 0, 0, 0.55) 80%);
+  z-index: 1;
+}
+
+/* Optional top vignette */
+.resort-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+  z-index: 2;
+}
+
+/* Parallax effect */
+.resort-hero.parallax {
+  background-attachment: fixed;
+}
+
+/* Container */
+.hero-container {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 1200px;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Logo */
+.hero-logo {
+  margin-bottom: 0.5rem;
+}
+
+.hero-logo img {
+  height: 60px;
+  width: auto;
+  max-width: 200px;
+  filter: drop-shadow(0 2px 4px var(--hero-shadow));
+}
+
+/* Title */
+.hero-title {
+  font-size: clamp(1.8rem, 4.2vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--hero-text);
+  margin: 0;
+  text-shadow: 0 2px 8px var(--hero-shadow);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Stars */
+.hero-stars {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-stars svg {
+  filter: drop-shadow(0 1px 2px var(--hero-shadow));
+}
+
+/* Location Pill */
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--hero-pill);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  color: var(--hero-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px var(--hero-shadow);
+}
+
+/* Feature Chips */
+.hero-chips {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--hero-chip);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 0.6rem 1rem;
+  color: var(--hero-text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px var(--hero-shadow);
+}
+
+.hero-chip:hover {
+  background: var(--hero-chip-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px var(--hero-shadow);
+}
+
+.hero-chip:active {
+  transform: translateY(0);
+}
+
+.hero-chip:focus {
+  outline: 2px solid var(--hero-gold);
+  outline-offset: 2px;
+}
+
+.chip-icon {
+  font-size: 1rem;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chip-label {
+  white-space: nowrap;
+}
+
+/* Rating Badge */
+.hero-rating {
+  position: absolute;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--hero-pill);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 0.75rem 1rem;
+  color: var(--hero-text);
+  box-shadow: 0 2px 8px var(--hero-shadow);
+}
+
+.rating-stars {
+  display: flex;
+  gap: 0.125rem;
+}
+
+.rating-stars svg {
+  width: 16px;
+  height: 16px;
+  filter: drop-shadow(0 1px 2px var(--hero-shadow));
+}
+
+.rating-text {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.rating-score {
+  font-weight: 600;
+}
+
+.rating-separator {
+  color: var(--hero-gold);
+}
+
+.rating-reviews {
+  opacity: 0.9;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991.98px) {
+  .hero-container {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.5rem, 6vw, 3rem);
+  }
+
+  .hero-chips {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    justify-content: flex-start;
+    padding: 0 1rem;
+    margin: 0 -1rem;
+    gap: 0.5rem;
+  }
+
+  .hero-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero-chip {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .hero-rating {
+    position: fixed;
+    right: 50%;
+    bottom: 2rem;
+    transform: translateX(50%);
+    left: auto;
+  }
+
+  .hero-pill {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .hero-logo img {
+    height: 50px;
+  }
+}
+
+/* Disable parallax on mobile devices to avoid iOS jank */
+@media (max-width: 768px) {
+  .resort-hero.parallax {
+    background-attachment: scroll;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .hero-chip:focus {
+    outline: 3px solid var(--hero-gold);
+    outline-offset: 3px;
+  }
+
+  .hero-pill,
+  .hero-rating {
+    border: 2px solid var(--hero-gold);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .hero-chip {
+    transition: none;
+  }
+
+  .hero-chip:hover {
+    transform: none;
+  }
+
+  .resort-hero.parallax {
+    background-attachment: scroll;
+  }
+}
